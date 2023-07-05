@@ -27,11 +27,10 @@ function App() {
       <h1>Phonebook</h1>
       {contacts !== 0 && <ContactForm/>}
 
-      <h2>Contacts</h2>
       <Filter/>
 
       {contacts.length !== 0 && filter === '' && 
-        <Contacts contacts={contacts} />}
+        <Contacts contacts={contacts} title={'Contacts'} />}
       
       
     </>

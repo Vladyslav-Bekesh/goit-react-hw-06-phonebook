@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { handleFilterChange } from '../redux/store';
 import Contacts from './Contacts';
-
+import Title from './Title';
 
 function Filter() {
   const filter = useSelector(state => state.filter);
@@ -18,7 +18,7 @@ function Filter() {
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
-  
+
   return (
     <>
       <label>
@@ -35,7 +35,9 @@ function Filter() {
       </label>
 
       {contacts.length !== 0 && filter !== '' && (
-        <Contacts contacts={makeFilteredContacts()} />
+        <>
+          <Contacts contacts={makeFilteredContacts()} title={'Filtered contacts'}/>
+        </>
       )}
     </>
   );

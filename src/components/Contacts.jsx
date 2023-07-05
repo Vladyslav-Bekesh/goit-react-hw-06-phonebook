@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Title from './Title';
+
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../redux/store';
 
-function Contacts({ contacts }) {
+function Contacts({ contacts, title }) {
   const dispatch = useDispatch();
 
   const handleClick = id => {
@@ -13,6 +15,7 @@ function Contacts({ contacts }) {
 
   return (
     <>
+      <Title title={title} />
       <ul>
         {contacts.map(({ name, id, number }) => {
           return (
