@@ -1,7 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Contacts({ contacts, onClick }) {
+import { useDispatch } from 'react-redux';
+import { deleteContact } from '../redux/store';
+
+function Contacts({ contacts }) {
+  const dispatch = useDispatch();
+
+  const handleClick = id => {
+    dispatch(deleteContact(id));
+  };
+
   return (
     <>
       <ul>
@@ -13,8 +22,8 @@ function Contacts({ contacts, onClick }) {
               </span>
               <button
                 type="button"
-                onClick={e => {
-                  onClick(e, id);
+                onClick={() => {
+                  handleClick(id);
                 }}
               >
                 delete
