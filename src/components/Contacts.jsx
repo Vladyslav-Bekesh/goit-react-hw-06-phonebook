@@ -1,52 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Title from './Title';
+import ContactsList from './ContactsList';
 
-import { useDispatch } from 'react-redux';
-import { deleteContact } from '../redux/store';
+import { useSelector } from 'react-redux';
 
-function Contacts({ contacts, title }) {
-  const dispatch = useDispatch();
-
-  const handleClick = id => {
-    dispatch(deleteContact(id));
-  };
+function Contacts() {
+  const contacts = useSelector(state => state.contacts);
 
   return (
     <>
-      <Title title={title} />
-      <ul>
-        {contacts.map(({ name, id, number }) => {
-          return (
-            <li key={id}>
-              <span>
-                {name}: {number}
-              </span>
-              <button
-                type="button"
-                onClick={() => {
-                  handleClick(id);
-                }}
-              >
-                delete
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      {contacts.length === 0 ? (
+        <Title title="U haven't any friends" />
+      ) : (
+        <ContactsList contacts={contacts} />
+      )}
     </>
   );
 }
-
-Contacts.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
 
 export default Contacts;
