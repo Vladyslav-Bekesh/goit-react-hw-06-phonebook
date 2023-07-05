@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 import ContactForm from './ContactForm';
 import Filter from './Filter';
 import Contacts from './Contacts';
