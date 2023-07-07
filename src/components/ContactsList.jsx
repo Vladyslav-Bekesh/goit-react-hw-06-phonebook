@@ -1,5 +1,5 @@
 import React from 'react';
-import { deleteContact } from '../redux/store';
+import { deleteContact } from '../redux/slicers/contactSlicer';
 import { useDispatch } from 'react-redux';
 
 function ContactsList({ contacts }) {
@@ -8,7 +8,7 @@ function ContactsList({ contacts }) {
   const handleClick = id => {
     dispatch(deleteContact(id));
   };
-  
+
   return contacts.map(({ name, id, number }) => {
     return (
       <li key={id}>

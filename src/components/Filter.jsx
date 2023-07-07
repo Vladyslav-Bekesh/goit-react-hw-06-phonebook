@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { handleFilterChange } from '../redux/store';
+import { handleFilterChange } from '../redux/slicers/filterSlice';
 import ContactsList from './ContactsList';
 
 import Title from './Title';
