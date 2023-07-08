@@ -6,7 +6,7 @@ import Title from './Title';
 
 function Filter() {
   const filter = useSelector(state => state.filter);
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.contacts);
 
   const dispatch = useDispatch();
 

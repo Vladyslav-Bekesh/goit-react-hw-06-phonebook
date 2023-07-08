@@ -6,9 +6,9 @@ import ContactsList from './ContactsList';
 import { useSelector } from 'react-redux';
 
 function Contacts() {
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.contacts);
   
-
+console.log(contacts.contacts);
   return (
     <>
       {contacts.length === 0 ? (
