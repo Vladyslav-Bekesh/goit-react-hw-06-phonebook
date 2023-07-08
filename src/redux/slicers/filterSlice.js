@@ -3,9 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = '';
 
 const filerSlice = createSlice({
-  name: 'contacts',
+  name: 'filter',
   initialState,
-  redusers: {
+  reducers: {
     handleFilterChange(state, action) {
       return action.payload;
     },
