@@ -7,7 +7,7 @@ const filerSlice = createSlice({
   initialState,
   reducers: {
     handleFilterChange(state, action) {
-      return action.payload;
+      state.filter = action.payload;
     },
   },
 });

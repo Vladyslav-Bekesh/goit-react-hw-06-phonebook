@@ -1,23 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { handleFilterChange } from '../redux/slicers/filterSlice';
-import ContactsList from './ContactsList';
-
-import Title from './Title';
 
 function Filter() {
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(state => state.filter.filter);
   const contacts = useSelector(state => state.contacts.contacts);
 
   const dispatch = useDispatch();
 
   const handleFilter = event => {
     dispatch(handleFilterChange(event.target.value));
-  };
-
-  const makeFilteredContacts = () => {
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
   };
 
   return (
@@ -35,20 +26,6 @@ function Filter() {
             required
           />
         </label>
-      )}
-
-      <Title title="Filtered contacts" />
-
-      {filter !== '' && makeFilteredContacts().length === 0 && (
-        <Title title="No matches" />
-      )}
-
-      {contacts.length > 0 && filter === '' && (
-        <Title title="Filter field is empty" />
-      )}
-
-      {makeFilteredContacts().length > 0 && filter !== '' && (
-        <ContactsList contacts={makeFilteredContacts()} />
       )}
     </>
   );
