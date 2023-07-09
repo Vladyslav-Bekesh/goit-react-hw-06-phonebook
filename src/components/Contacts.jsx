@@ -26,7 +26,7 @@ function Contacts() {
       )}
 
       {filter !== '' && makeFilteredContacts().length !== 0 && (
-        <ContactsList contacts={contacts} />
+        <ContactsList contacts={makeFilteredContacts()} />
       )}
 
       {filter !== '' && makeFilteredContacts().length === 0 && (
