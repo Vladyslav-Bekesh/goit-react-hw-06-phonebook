@@ -32,10 +32,6 @@ function Contacts() {
       {filter !== '' && makeFilteredContacts().length === 0 && (
         <Title title="No matches" />
       )}
-
-      {filter === ''&&(
-        <Title title="Filter field is empty" />
-      )}
     </>
   );
 }
