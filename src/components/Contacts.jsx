@@ -18,29 +18,23 @@ function Contacts() {
 
   return (
     <>
-      {contacts.length === 0 ? (
-        <Title title="U haven't any friends" />
-      ) : (
+      {contacts.length === 0 && <Title title="U haven't any friends" />}
+      {contacts.length !== 0 && <Filter />}
+
+      {contacts.length !== 0 && filter === '' && (
         <ContactsList contacts={contacts} />
       )}
-      <br />
 
-      <Filter />
-
-      {filter !== ''  && (
-        <Title title="Filtered contacts" />
+      {filter !== '' && makeFilteredContacts().length !== 0 && (
+        <ContactsList contacts={contacts} />
       )}
-      
+
       {filter !== '' && makeFilteredContacts().length === 0 && (
         <Title title="No matches" />
       )}
 
-      {contacts.length > 0 && filter === '' && (
+      {filter === ''&&(
         <Title title="Filter field is empty" />
-      )}
-
-      {makeFilteredContacts().length > 0 && filter !== '' && (
-        <ContactsList contacts={makeFilteredContacts()} />
       )}
     </>
   );
