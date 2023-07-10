@@ -39,9 +39,7 @@ function ContactForm() {
   };
 
   const newContact = (name, number) => {
-    const isDuplicate = contacts.some(
-      contact => contact.name === name && contact.number === number
-    );
+    const isDuplicate = contacts.some(contact => contact.name === name);
 
     if (isDuplicate) {
       alert('This contact is already in contacts');
